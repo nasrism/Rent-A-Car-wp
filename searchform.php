@@ -37,7 +37,7 @@
               
             <div class="type fil-list sel-fil">
                 <h5>Car type</h5>
-                <select name="car-type" id="car-type">
+                <select name="type" id="car-type">
                     <option value="">Any</option>
                     <?php 
                         $car_types = array(
@@ -55,10 +55,10 @@
                 </select>
             </div>
 
-            
+
             <div class="brand fil-list sel-fil">
                 <h5>Car brand</h5>
-                <select name="car-brand" id="car-brand">
+                <select name="brand" id="car-brand">
                     <option value="">Any</option>
                     <?php 
                         $car_brands = array(
@@ -89,7 +89,7 @@
         </div>
 
         <?php
-            echo '<a href="' . remove_query_arg(array('rent-price','car-brand', 'car-type','from','to')) . '" class="remove-filter-button">Remove Filter</a>';
+            echo '<a href="' . remove_query_arg(array('rent-price','brand', 'type','from','to')) . '" class="remove-filter-button">Remove Filter</a>';
         ?>
 
     </div>
@@ -105,9 +105,24 @@
         </div>
 
         <input type="name" class="search-field"
-        placeholder="<?php echo esc_attr_x( 'Search the car you want to rent', 'placeholder' ) ?>"
-        value="<?php echo get_search_query() ?>" name="s"
-        title="<?php echo esc_attr_x( 'Search', 'label' ) ?>" />
+    placeholder="<?php echo esc_attr_x( 'Search the car you want to rent', 'placeholder' ) ?>"
+    value="<?php echo get_search_query() ?>" name="s"
+    title="<?php echo esc_attr_x( 'Search', 'label' ) ?>"
+    <?php
+    // Add the 'post_type' parameter to specify the custom post type(s) you want to search in
+    $custom_post_types = array('car'); // Replace with your custom post type slug(s)
+    $post_type_query = '';
+
+    if (!empty($_GET['post_type']) && in_array($_GET['post_type'], $custom_post_types)) {
+        $post_type_query = 'post_type=' . sanitize_text_field($_GET['post_type']);
+    } elseif (isset($_GET['post_type'])) {
+        // Handle invalid post_type values, if necessary
+    }
+
+    echo $post_type_query;
+    ?>
+/>
+
 
         <button type="submit" class="search-button"
         title="<?php echo esc_attr_x( 'Search', 'label' ) ?>"
