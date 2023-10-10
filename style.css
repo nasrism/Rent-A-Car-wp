@@ -36,7 +36,7 @@ Version: 1.0
 html {
     font-size: 100%;
     color: var(--text);
-    transition: all 0.3s;
+    transition: all 0.3s ease-in-out;
 } /* 16px */
 
 body {
@@ -60,7 +60,7 @@ i {
   color: var(--text);
     scale:1.5;
     &, label{
-      transition: all 0.3s;
+      transition: all 0.3s ease-in-out;
 
     }
 }
@@ -175,7 +175,7 @@ small {font-size: 0.750rem; /* 12px */}
     padding: 10px;
     border-radius: 10px;
     border: none;
-    transition: all 0.3s;
+    transition: all 0.3s ease-in-out;
 
     &:hover{
       background-color: var(--background);
@@ -285,7 +285,7 @@ padding: 10px;
 
 
 .children-links a:hover{
-transition: all 0.3ms;
+transition: all 0.3ms ease-in-out;
 margin-left: 3px;
 }
 
@@ -356,7 +356,7 @@ margin: 0px;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  transition: scale 0.3s 0.3s;
+  transition: scale 0.3s 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
   border: 1px solid var(--accent);
   border-radius: 5vmin;
@@ -530,6 +530,7 @@ scale:0.7;
 }
 /* sc-r = search result */
 .sc-r{    
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -543,9 +544,41 @@ scale:0.7;
   border: 1px solid var(--primary);
   box-shadow: 0px 5px 5px 0px var(--shadow);
   margin: 20px;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
+  & h5,h2{
+    margin: 0px;
+  }
+  & h5{
+    position: absolute;
+    background-color: var(--accent);
+    color: var(--text);
+    top: 0px;
+    left: 0px;
+    border-radius: 20px 0px 20px 0px;
+    padding: 10px;
+  }
+  & p{
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    color: var(--text);
+    font-size: 10px;
+  }
+  & img{
+    transition: all 0.3s ease-in-out;
+    z-index: 3;
+  }
   &:hover{
     transform: scale(1.1);
+  & img{
+    transform: scale(1.5);
+  }
+  & :active{
+    transform: scale(1);
+    & img{
+      transform: scale(1);
+    }
+  }
   }
 }
 /* sc-r-c = search result container */
