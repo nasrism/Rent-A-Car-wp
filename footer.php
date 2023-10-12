@@ -23,6 +23,7 @@
         </nav>
     </div>
 
+    <a href="https://youtu.be/FegSXL7D44w?si=cOMI0RaXyd1AUAE8">Click here to watch the dynamic version</a>
 <p><?php bloginfo('name'); ?> - &copy; <?php echo date('Y') ?></p>
 </footer>
 

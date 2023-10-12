@@ -6,7 +6,7 @@
     <script src="https://kit.fontawesome.com/75b710a8ef.js" crossorigin="anonymous"></script>
 
 
-<form role="search" method="get" id="searcher" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+<form role="search" method="get" id="searcher" class="search-form" action="<?php echo home_url( '/' ) ?>">
     <div class="filter-search" style="scale:0; opacity:0;">
     
         <div class="checkbox cb-filter">

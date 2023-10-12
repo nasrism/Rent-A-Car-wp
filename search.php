@@ -33,7 +33,7 @@ get_template_part('filter-function');?>
 
         $args = array(
             'post_type' => 'car',
-            'post_per_page' => -1,
+            'posts_per_page' => -1,
             'orderby' => 'rand',
             'meta_query' => array(
                 array(
@@ -84,6 +84,7 @@ get_template_part('filter-function');?>
         </a>
         <?php
         endwhile;
+        wp_reset_query();
         else:
             echo '<p>NOTHING HERE</p>';
     endif;
