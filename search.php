@@ -10,7 +10,7 @@ get_template_part('filter-function');?>
 <div class="items-container sc-r-c">
    
     <?php 
-
+        $location = '';
         $rent_price = '';
         $type = '';
         $brand = '';
@@ -26,6 +26,10 @@ get_template_part('filter-function');?>
         if(isset($_GET['brand']) && !empty($_GET['brand'])){
             $brand = $_GET['brand'];
         }
+        if(isset($_GET['s']) && !empty($_GET['s'])){
+            $location = $_GET['s'];
+        }
+        
 
         $args = array(
             'post_type' => 'car',
@@ -45,6 +49,11 @@ get_template_part('filter-function');?>
                 array(
                     'key' => 'rent-price',
                     'value' => $rent_price,
+                    'compare' => 'LIKE',
+                ),
+                array(
+                    'key' => 'location',
+                    'value' => $location,
                     'compare' => 'LIKE',
                 ),
 

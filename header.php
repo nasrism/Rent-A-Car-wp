@@ -29,7 +29,11 @@
                     <div class="top-sub-content">
                         <i class="fa-solid fa-bars" onclick='navbar()'></i>
                         <div class="top-sub-content-detail">
-                            <?php wp_nav_menu( $args ); ?>
+                            <?php
+                    $args = array(
+                        'theme_location' => 'nav'
+                    ); 
+                     wp_nav_menu( $args ); ?>
                         </div>
                     </div>
                 </div>
